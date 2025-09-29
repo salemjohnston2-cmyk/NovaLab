@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How I Built My First Website/NevaLabs</title>
+  <link rel="stylesheet" href="mystyle.css">
+  <style>
+    /* Blog-specific styling */
+    body {
+        margin: 0;
+        font-family: 'Roboto Mono', monospace;
+        background: linear-gradient(135deg, #7b2bff, #0081ff); /* bluish-purple */
+        color: #fff;
+    }
+
+    #particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+
+    .container {
+        position: relative;
+        z-index: 1; /* content above particles */
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 60px 20px;
+    }
+
+    .back-home {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        padding: 12px 18px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        background-color: #2563EB;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .blog-post h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .post-info {
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+        opacity: 0.8;
+    }
+
+    .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease-out;
+        margin-bottom: 20px;
+    }
+
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    a {
+        color: #fff;
+    }
+    /* Container to hold the images in a row */
+.image-wrapper-container {
+  display: flex;
+  justify-content: center; /* center the row */
+  gap: 10px; /* space between images */
+  margin-top: 20px;
+}
+
+/* Individual image wrapper */
+.image-wrapper {
+  position: relative;
+  width: 100%;  /* size of the circle */
+  height: 140px;
+  border-radius: 50%; /* makes it circular */
+  overflow: hidden;
+}
+
+/* Images inside wrapper */
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fill the circle without distortion */
+  display: block;
+}
+
+/* Optional overlay caption */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 14px;
+  padding: 5px 0;
+}
+    
+  </style>
+</head>
+<body>
+  <!-- Particles background -->
+  <canvas id="particles"></canvas>
+
+  <!-- Floating Back Home button -->
+  <a href="homepage.html" class="btn btn-primary back-home">🏠 Back Home</a>
+
+  <!-- Blog content -->
+  <main class="container blog-post">
+    <article>
+      <h1>How I Built My First Website</h1>
+      <p class="post-info">🗓 September 2025 | 🕒 5 min read</p>
+
+      <p class="fade-in">
+        It all started with a dusty laptop, some dodgy internet, and way too many HTML tutorials…
+      </p>
+      <p class="fade-in">
+        I made every mistake possible: tables for layouts, inline styles everywhere, 
+        and images that refused to align. But I kept going, and every bug I fixed 
+        made me fall more in love with building things on the web.
+      </p>
+      <p class="fade-in">
+        That site wasn’t perfect, but it was the seed that grew into everything I do today.
+      </p>
+
+      <!-- ... your blog content continues unchanged ... --><ul>
+      <li><strong>Simplicity wins.</strong> Users don’t want clutter, they want clarity.</li>
+      <li><strong>Details matter.</strong> Small optimizations can create a big impact.</li>
+      <li><strong>Growth never stops.</strong> Every project is a stepping stone to better results.</li>
+    </ul>
+    
+    <h2>Why This Matters for You</h2>
+    <p>
+      When I take on a project today, I approach it with the same persistence that got me 
+      through those first messy websites — but with years of experience, modern tools, and a clear strategy.
+    </p>
+    <p>
+      Whether you need a <strong>professional website, an automation system, or a digital product</strong>, 
+      I’ve walked the journey from idea → execution → growth. And I know how to take your business there, too.
+    </p>
+    <div class="image-wrapper-container">
+  <div class="image-wrapper">
+    <img src="img/magazine.jpg" alt="Tech Blog 1">
+    <div class="overlay">Blog 1</div>
+  </div>
+
+  <div class="image-wrapper">
+    <img src="img/magazine2.jpg" alt="Tech Blog 2">
+    <div class="overlay">Blog 2</div>
+  </div>
+
+  <div class="image-wrapper">
+    <img src="img/magazine3.jpg" alt="Tech Blog 3">
+    <div class="overlay">Blog 3</div>
+  </div>
+</div>
+<i><snall>designed and developed a tech blog</small> 😎</i>
+</br>
+</br>
+</br>
+    <h2>Final Note</h2>
+    <p>
+      That first dusty-laptop website planted the seed. Today, I build polished, scalable solutions 
+      designed to help businesses grow.
+    </p>
+    <p>
+      And if you’re reading this wondering whether to start your own project — the best time is now. 
+      Let’s build something together.
+    </p>
+
+    </article>
+  </main>
+ <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 NexaLabs. All rights reserved. | Transforming Businesses Through Innovation</p>
+        </div>
+    </footer>
+
+  <!-- JS Scripts -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+  // ===== Particles setup =====
+  const canvas = document.getElementById("particles");
+  if (canvas) {
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particlesArray = [];
+    const numberOfParticles = 80;
+
+    for (let i = 0; i < numberOfParticles; i++) {
+      particlesArray.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 2 + 0.5, // small, subtle particles
+        speedX: Math.random() * 1.5 - 0.75,
+        speedY: Math.random() * 1.5 - 0.75
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particlesArray.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = "white";
+        ctx.fill();
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        if (p.x > canvas.width) p.x = 0;
+        if (p.x < 0) p.x = canvas.width;
+        if (p.y > canvas.height) p.y = 0;
+        if (p.y < 0) p.y = canvas.height;
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  }
+
+  // ===== Fade-in scroll animations =====
+  const fadeIns = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0 });
+
+  fadeIns.forEach(el => {
+    observer.observe(el);
+    // Trigger immediately if already in view
+    const rect = el.getBoundingClientRect();
+    if(rect.top < window.innerHeight && rect.bottom > 0){
+      el.classList.add('visible');
+      observer.unobserve(el);
+    }
+  });
+});
+  </script>
+</body>
+</html>
